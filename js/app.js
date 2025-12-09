@@ -1,4 +1,3 @@
-// js/app.js — Little Learners MV (web)
 function showScreen(name) {
   let content = "";
 
@@ -57,9 +56,9 @@ function speak(word) {
   }
 }
 
-// Simple Count the Fish game
+// Game 1
 function playCountGame() {
-  const fish = 3 + Math.floor(Math.random() * 5); 
+  const fish = 3 + Math.floor(Math.random() * 5);
   let html = `<div class="game"><div class="fishline">${'🐟 '.repeat(fish)}</div><div class="options">`;
   [fish - 1, fish, fish + 1].forEach(n => {
     html += `<button onclick="chooseNumber(${n}, ${fish})">${n}</button>`;
@@ -68,11 +67,10 @@ function playCountGame() {
   document.getElementById("screen").innerHTML = html;
 }
 function chooseNumber(choice, correct) {
-  if (choice === correct) alert('Correct!');
-  else alert('Try again!');
+  alert(choice === correct ? 'Correct!' : 'Try again!');
 }
 
-// Simple Memory Match
+// Game 2
 function playMemory() {
   const icons = ['🐟','🌴','🐚','🐢'];
   const cards = icons.concat(icons).sort(()=>Math.random()-0.5);
@@ -83,7 +81,6 @@ function playMemory() {
   });
   html += '</div>';
   document.getElementById("screen").innerHTML = html;
-
   window._mem_first = null;
   window._mem_locked = false;
 }
