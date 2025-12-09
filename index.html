@@ -1,27 +1,79 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Little Learners MV</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Little Learners MV</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FFF7EB" />
+  <meta name="description" content="Little Learners MV — alphabets, numbers, shapes, animals, games. Beach theme." />
+
+  <!-- Open Graph for FB preview -->
+  <meta property="og:title" content="Little Learners MV" />
+  <meta property="og:description" content="Free beach-themed kids learning game by Barefeet MV" />
+  <meta property="og:image" content="/assets/banner.png" />
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="site-header">
+    <img src="assets/banner.png" alt="Little Learners MV" class="banner">
+    <h1>Little Learners MV</h1>
+    <p class="byline">Barefeet MV — Beach theme</p>
+  </header>
 
-<h1 class="title">Little Learners MV</h1>
+  <main id="app">
+    <nav class="menu" role="navigation" aria-label="Main menu">
+      <button data-screen="learn" class="active">Learn</button>
+      <button data-screen="games">Games</button>
+      <button data-screen="dhivehi">Dhivehi</button>
+      <button data-screen="about">About</button>
+    </nav>
 
-<div class="menu">
-  <button onclick="showScreen('alphabets')">Alphabets</button>
-  <button onclick="showScreen('numbers')">Numbers</button>
-  <button onclick="showScreen('shapes')">Shapes</button>
-  <button onclick="showScreen('animals')">Animals</button>
-  <button onclick="showScreen('games')">Games</button>
-</div>
+    <section id="screen-learn" class="screen">
+      <div class="grid">
+        <div class="card" id="alphabets-card"><h3>Alphabets</h3><p>Tap letters to hear them.</p></div>
+        <div class="card" id="numbers-card"><h3>Numbers</h3><p>Tap numbers to hear them.</p></div>
+        <div class="card" id="shapes-card"><h3>Shapes & Colors</h3><p>Tap to learn.</p></div>
+        <div class="card" id="animals-card"><h3>Animals</h3><p>Tap animals to hear them.</p></div>
+      </div>
+      <div id="learn-area"></div>
+    </section>
 
-<div id="screen">
-  <h3>Welcome!</h3>
-  <p>Tap a button to begin.</p>
-</div>
+    <section id="screen-games" class="screen hidden">
+      <h2>Games</h2>
+      <div class="grid">
+        <div class="card game-btn" data-game="match"><h3>Match the Letter</h3></div>
+        <div class="card game-btn" data-game="count"><h3>Count the Fish</h3></div>
+        <div class="card game-btn" data-game="memory"><h3>Memory</h3></div>
+      </div>
+      <div id="game-area"></div>
+    </section>
 
-<script src="js/app.js"></script>
+    <section id="screen-dhivehi" class="screen hidden">
+      <h2>Dhivehi (Thaana)</h2>
+      <div id="dhivehi-area"></div>
+    </section>
+
+    <section id="screen-about" class="screen hidden">
+      <h2>About</h2>
+      <p>Little Learners MV by Barefeet MV. Works offline after first load. No personal data collected.</p>
+      <p>Contact: moonshinemv@outlook.com</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Play on phone or desktop — installable (add to home screen)</p>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script>
+    // register service worker for offline/PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').catch(()=>{console.log('SW register failed')});
+    }
+  </script>
 </body>
 </html>
