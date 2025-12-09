@@ -1,4 +1,3 @@
-/* css/style.css */
 body {
   margin: 0;
   padding: 0;
@@ -7,14 +6,12 @@ body {
   text-align: center;
   color: #082231;
 }
-
 .title {
   padding: 18px;
   font-size: 28px;
   color: #082231;
   font-weight: 800;
 }
-
 .menu {
   padding: 12px;
   display: flex;
@@ -22,7 +19,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .menu button {
   background: #FFEDD5;
   border: none;
@@ -31,13 +27,11 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
-
 #screen {
   padding: 18px;
   max-width: 960px;
   margin: 0 auto;
 }
-
 button.letter, button.number, button.shape, button.animal {
   margin: 6px;
   padding: 14px 18px;
@@ -47,7 +41,3 @@ button.letter, button.number, button.shape, button.animal {
   font-size: 18px;
   cursor: pointer;
 }
-
-.game .fishline { font-size: 32px; margin-bottom: 12px; }
-.memory { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 360px; margin: 0 auto; }
-.memory button.mem { padding: 18px; font-size: 18px; border-radius: 8px; }
