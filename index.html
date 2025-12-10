@@ -80,3 +80,23 @@
   </script>
 </body>
 </html>
+<!-- Change these lines -->
+<link rel="manifest" href="/manifest.json">
+<meta property="og:image" content="/assets/banner.png" />
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .catch(()=>{console.log('SW register failed')});
+  }
+</script>
+
+<!-- To these -->
+<link rel="manifest" href="manifest.json">
+<meta property="og:image" content="assets/banner.png" />
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(()=>console.log('SW registered'))
+      .catch(err => { console.error('SW register failed', err); });
+  }
+</script>
