@@ -1,30 +1,45 @@
+// service-worker.js — simple cache-first service worker
+const CACHE_NAME = 'little-learners-v1';
 const ASSETS = [
   '/',
   '/index.html',
   '/Letters.html',
   '/css/styles.css',
   '/js/app.js',
+  '/manifest.json',
   '/assets/fonts/funster.otf'
-  // add other assets as needed
+  // add '/assets/letters/A.png', ... if you intend to cache letter PNGs
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(OFFLINE_URLS))
-  );
+self.addEventListener('install', (e) => {
   self.skipWaiting();
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(k => k !== CACHE_NAME ? caches.delete(k) : null)
+    ))
+  );
 });
 
-self.addEventListener('fetch', event => {
-  const req = event.request;
-  if (req.method !== 'GET') return;
-  event.respondWith(
-    caches.match(req).then(resp => resp || fetch(req).then(fetchResp => {
-      return caches.open(CACHE_NAME).then(cache => { cache.put(req, fetchResp.clone()); return fetchResp; });
-    })).catch(()=> caches.match('/index.html'))
+self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  // for navigation, prefer network then fallback to cache
+  if (req.mode === 'navigate') {
+    e.respondWith(
+      fetch(req).catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
+  // cache-first for other assets
+  e.respondWith(
+    caches.match(req).then(res => res || fetch(req).then(fetchRes => {
+      // optionally cache fetched assets
+      return fetchRes;
+    }).catch(() => null))
   );
 });
