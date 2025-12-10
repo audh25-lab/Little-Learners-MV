@@ -1,11 +1,11 @@
-const CACHE_NAME = 'llmv-v1';
-const OFFLINE_URLS = [
+const ASSETS = [
   '/',
   '/index.html',
-  '/css/style.css',
+  '/Letters.html',
+  '/css/styles.css',
   '/js/app.js',
-  '/assets/banner.png',
-  '/assets/icon.png'
+  '/assets/fonts/funster.otf'
+  // add other assets as needed
 ];
 
 self.addEventListener('install', event => {
