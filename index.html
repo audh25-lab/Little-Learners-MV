@@ -4,108 +4,57 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Little Learners MV</title>
-
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#FFF7EB" />
-  <meta name="description" content="Little Learners MV — alphabets, numbers, shapes, animals, games. Beach theme." />
-
-  <!-- Open Graph for FB preview -->
-  <meta property="og:title" content="Little Learners MV" />
-  <meta property="og:description" content="Free beach-themed kids learning game by Barefeet MV" />
-  <meta property="og:image" content="/assets/banner.png" />
-
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="Little Learners MV — fun island-themed early learning for kids." />
 </head>
 <body>
-  <header class="site-header">
-    <img src="assets/banner.png" alt="Little Learners MV" class="banner">
-    <h1>Little Learners MV</h1>
-    <p class="byline">Barefeet MV — Beach theme</p>
+  <header class="header" role="banner">
+    <div class="brand">
+      <div class="logo">LL</div>
+      <div>
+        <h1>Little Learners MV</h1>
+        <p>Playful island learning — letters, stories & activities</p>
+      </div>
+    </div>
+
+    <div class="top-actions" role="navigation" aria-label="Top actions">
+      <button class="btn" id="btn-stories">Stories</button>
+      <a class="btn primary" href="Letters.html" id="btn-letters">Learn Letters</a>
+    </div>
   </header>
 
-  <main id="app">
-    <nav class="menu" role="navigation" aria-label="Main menu">
-      <button data-screen="learn" class="active">Learn</button>
-      <button data-screen="games">Games</button>
-      <button data-screen="dhivehi">Dhivehi</button>
-      <button data-screen="about">About</button>
-    </nav>
+  <main class="container" role="main">
+    <section class="grid" aria-label="Main menu">
+      <a class="card" href="Letters.html">
+        <div class="icon">🔤</div>
+        <h3>Letters</h3>
+        <p>Learn letters with clear font cards — large and simple.</p>
+      </a>
 
-    <section id="screen-learn" class="screen">
-      <div class="grid">
-<a href="letters.html" class="card" id="alphabets-card">
-  <h3>Alphabets</h3>
-  <p>Tap to view all letters.</p>
-</a>
-        <div class="card" id="numbers-card"><h3>Numbers</h3><p>Tap numbers to hear them.</p></div>
-        <div class="card" id="shapes-card"><h3>Shapes & Colors</h3><p>Tap to learn.</p></div>
-        <div class="card" id="animals-card"><h3>Animals</h3><p>Tap animals to hear them.</p></div>
-      </div>
-      <div id="learn-area"></div>
-    </section>
+      <a class="card" href="#" id="card-stories">
+        <div class="icon">📘</div>
+        <h3>Stories</h3>
+        <p>Short stories and picture books for early readers.</p>
+      </a>
 
-    <section id="screen-games" class="screen hidden">
-      <h2>Games</h2>
-      <div class="grid">
-        <div class="card game-btn" data-game="match"><h3>Match the Letter</h3></div>
-        <div class="card game-btn" data-game="count"><h3>Count the Fish</h3></div>
-        <div class="card game-btn" data-game="memory"><h3>Memory</h3></div>
-      </div>
-      <div id="game-area"></div>
-    </section>
+      <a class="card" href="#" id="card-activities">
+        <div class="icon">🎨</div>
+        <h3>Activities</h3>
+        <p>Simple crafts and games to reinforce learning.</p>
+      </a>
 
-    <section id="screen-dhivehi" class="screen hidden">
-      <h2>Dhivehi (Thaana)</h2>
-      <div id="dhivehi-area"></div>
-    </section>
-
-    <section id="screen-about" class="screen hidden">
-      <h2>About</h2>
-      <p>Little Learners MV by Barefeet MV. Works offline after first load. No personal data collected.</p>
-      <p>Contact: moonshinemv@outlook.com</p>
+      <a class="card" href="#" id="card-about">
+        <div class="icon">🏝️</div>
+        <h3>About</h3>
+        <p>Made with island love — designed for Maldivian kids.</p>
+      </a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>Play on phone or desktop — installable (add to home screen)</p>
+  <footer class="footer">
+    © <span id="year"></span> Little Learners MV — Crafted with care.
   </footer>
 
-  <script src="js/app.js" defer></script>
-  <script>
-    // register service worker for offline/PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js').catch(()=>{console.log('SW register failed')});
-    }
-  </script>
-</body>
-</html>
-<!-- Change these lines -->
-<link rel="manifest" href="/manifest.json">
-<meta property="og:image" content="/assets/banner.png" />
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .catch(()=>{console.log('SW register failed')});
-  }
-</script>
-
-<!-- To these -->
-<link rel="manifest" href="manifest.json">
-<meta property="og:image" content="assets/banner.png" />
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(()=>console.log('SW registered'))
-      .catch(err => { console.error('SW register failed', err); });
-  }
-</script>
-<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Page not found | Little Learners MV</title></head>
-<body>
-  <h1>404 — Page Not Found</h1>
-  <p>Sorry, we couldn’t find what you were looking for.</p>
-  <p><a href="index.html">Go back to home</a></p>
+  <script src="js/app.js"></script>
 </body>
 </html>
