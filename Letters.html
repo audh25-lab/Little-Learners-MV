@@ -4,40 +4,46 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Letters — Little Learners MV</title>
+  <meta name="description" content="Alphabet cards — Little Learners MV" />
   <link rel="stylesheet" href="css/styles.css">
-  <meta name="description" content="Letters page — Little Learners MV" />
 </head>
 <body>
-  <header class="header">
+  <header class="header" role="banner">
     <div class="brand">
-      <div class="logo">LL</div>
+      <div class="logo" aria-hidden="true">LL</div>
       <div>
         <h1>Letters</h1>
-        <p>Tap a letter to interact — now using the Funster font.</p>
+        <p class="lead">Tap a card to see it up close — font or PNG if available.</p>
       </div>
     </div>
 
-    <div class="top-actions">
+    <nav class="top-actions" role="navigation" aria-label="Top actions">
       <a class="btn" href="index.html">Home</a>
       <button class="btn primary" id="shuffle">Shuffle</button>
-    </div>
+    </nav>
   </header>
 
-  <main class="container">
+  <main class="container" role="main">
     <div class="letters-hero">
       <h2 style="margin:0">Alphabet Cards</h2>
-      <p style="margin:8px 0 0; color:var(--muted)">Large, clear letters—perfect for early learners.</p>
+      <p class="muted">Large, clear letters — perfect for early learners.</p>
     </div>
 
     <section class="letters-grid" id="lettersGrid" aria-label="Alphabet grid">
-      <!-- JS will inject letter cards here -->
+      <!-- JS will inject A–Z letter cards here -->
     </section>
   </main>
 
-  <footer class="footer">
-    Tap a card — press Shuffle to randomize the order.
-  </footer>
+  <footer class="footer">Tap a card — press Shuffle to randomize.</footer>
 
-  <script src="js/app.js"></script>
+  <!-- Modal / preview -->
+  <div id="preview" class="preview" aria-hidden="true">
+    <div class="preview-inner" role="dialog" aria-label="Letter preview">
+      <button class="preview-close" id="previewClose" aria-label="Close preview">✕</button>
+      <div id="previewContent" class="preview-content" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
