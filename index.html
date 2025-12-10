@@ -1,60 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Little Learners MV</title>
   <link rel="stylesheet" href="css/styles.css">
-  <meta name="description" content="Little Learners MV — fun island-themed early learning for kids." />
 </head>
-<body>
-  <header class="header" role="banner">
-    <div class="brand">
-      <div class="logo">LL</div>
-      <div>
-        <h1>Little Learners MV</h1>
-        <p>Playful island learning — letters, stories & activities</p>
-      </div>
-    </div>
 
-    <div class="top-actions" role="navigation" aria-label="Top actions">
-      <button class="btn" id="btn-stories">Stories</button>
-      <a class="btn primary" href="Letters.html" id="btn-letters">Learn Letters</a>
-    </div>
+<body>
+
+  <header class="hero">
+    <h1>Little Learners MV</h1>
+    <p>Explore, Learn, and Have Fun!</p>
   </header>
 
-  <main class="container" role="main">
-    <section class="grid" aria-label="Main menu">
-      <a class="card" href="Letters.html">
-        <div class="icon">🔤</div>
-        <h3>Letters</h3>
-        <p>Learn letters with clear font cards — large and simple.</p>
-      </a>
+  <section class="letters">
+    <h2>Select a Letter</h2>
 
-      <a class="card" href="#" id="card-stories">
-        <div class="icon">📘</div>
-        <h3>Stories</h3>
-        <p>Short stories and picture books for early readers.</p>
-      </a>
+    <div class="grid">
+      <!-- A–Z links -->
+      <a href="Letters/A.html">A</a>
+      <a href="Letters/B.html">B</a>
+      <a href="Letters/C.html">C</a>
+      <a href="Letters/D.html">D</a>
+      <!-- Continue for all letters -->
+    </div>
+  </section>
 
-      <a class="card" href="#" id="card-activities">
-        <div class="icon">🎨</div>
-        <h3>Activities</h3>
-        <p>Simple crafts and games to reinforce learning.</p>
-      </a>
-
-      <a class="card" href="#" id="card-about">
-        <div class="icon">🏝️</div>
-        <h3>About</h3>
-        <p>Made with island love — designed for Maldivian kids.</p>
-      </a>
-    </section>
-  </main>
-
-  <footer class="footer">
-    © <span id="year"></span> Little Learners MV — Crafted with care.
-  </footer>
-
-  <script src="js/app.js"></script>
 </body>
 </html>
