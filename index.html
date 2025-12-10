@@ -1,31 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Little Learners MV</title>
+  <meta name="description" content="Little Learners MV — playful island-themed early learning for kids." />
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest.json">
 </head>
-
 <body>
+  <header class="header" role="banner">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">LL</div>
+      <div>
+        <h1 class="site-title">Little Learners MV</h1>
+        <p class="lead">Playful island learning — letters, stories & activities</p>
+      </div>
+    </div>
 
-  <header class="hero">
-    <h1>Little Learners MV</h1>
-    <p>Explore, Learn, and Have Fun!</p>
+    <nav class="top-actions" role="navigation" aria-label="Top actions">
+      <button class="btn" id="btn-stories">Stories</button>
+      <a class="btn primary" href="Letters.html" id="btn-letters">Learn Letters</a>
+    </nav>
   </header>
 
-  <section class="letters">
-    <h2>Select a Letter</h2>
+  <main class="container" role="main">
+    <section class="grid" aria-label="Main menu">
+      <a class="card" href="Letters.html" aria-label="Letters">
+        <div class="icon" aria-hidden="true">🔤</div>
+        <h3>Letters</h3>
+        <p>Big, friendly letters — perfect for early learners.</p>
+      </a>
 
-    <div class="grid">
-      <!-- A–Z links -->
-      <a href="Letters/A.html">A</a>
-      <a href="Letters/B.html">B</a>
-      <a href="Letters/C.html">C</a>
-      <a href="Letters/D.html">D</a>
-      <!-- Continue for all letters -->
-    </div>
-  </section>
+      <a class="card" href="#" id="card-stories" aria-label="Stories">
+        <div class="icon" aria-hidden="true">📘</div>
+        <h3>Stories</h3>
+        <p>Short picture stories for little readers.</p>
+      </a>
 
+      <a class="card" href="#" id="card-activities" aria-label="Activities">
+        <div class="icon" aria-hidden="true">🎨</div>
+        <h3>Activities</h3>
+        <p>Easy crafts and play ideas to reinforce learning.</p>
+      </a>
+
+      <a class="card" href="#" id="card-about" aria-label="About">
+        <div class="icon" aria-hidden="true">🏝️</div>
+        <h3>About</h3>
+        <p>Made with island love — designed for Maldivian children.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Little Learners MV — Crafted with care.
+  </footer>
+
+  <template id="toastTpl">
+    <div class="toast">Feature coming soon</div>
+  </template>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
